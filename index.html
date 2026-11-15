@@ -331,6 +331,17 @@ main p.muted,.journey p,.phase .out,.unscored{color:var(--ink)}
 .gauge .score,.stat b,.res .big b,.phase .score-step{font-weight:400}
 tr.group td{font-weight:400}
 .nw{white-space:nowrap}
+/* Even vertical rhythm: same space around every section, roomier inside */
+main > section{padding-block:clamp(84px,8.5vw,140px)}
+.cover .wrap{padding-bottom:clamp(84px,8.5vw,140px)}
+main .stack-lg{gap:44px}
+main .stack-lg > h3.sub{margin-top:28px}
+@media (max-width:820px){
+  main > section{padding-block:72px}
+  .cover .wrap{padding-bottom:72px}
+  main .stack-lg{gap:32px}
+  main .stack-lg > h3.sub{margin-top:16px}
+}
 @media (max-width:820px){
   .cover h1{font-size:clamp(1.5rem,6.6vw,2.1rem);line-height:1.06;max-width:none}
   .cover .lede{font-size:.95rem}
