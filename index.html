@@ -356,61 +356,14 @@ main .stack-lg > h3.sub{margin-top:20px}
 /* Final thoughts: text left, progress chart right */
 .final-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(48px,5.5vw,88px);align-items:center}
 .final-text{text-align:left;align-items:flex-start}
-.db-card{margin:0;background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:18px;min-width:0}
-.db-card .eyebrow{font-size:.7rem}
-.db-big{font-family:var(--f-display);font-size:clamp(2.6rem,4.2vw,3.6rem);line-height:1;display:flex;align-items:baseline;gap:14px}
-.db-big .was{color:var(--ink-2)}
-.db-big .arrow{font-family:var(--f-mono);font-size:.45em;color:var(--ink-2)}
-.db-big .now{background:var(--grad-ink);-webkit-background-clip:text;background-clip:text;color:transparent}
-.db-card p.db-intro{margin:0;font-size:.92rem}
-.db-legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82rem;color:var(--ink-2)}
-.db-legend span{display:inline-flex;align-items:center;gap:8px}
-.db-legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
-.k-old{background:var(--unk)}
-.k-new{background:var(--accent-2)}
-.db-legend i.k-target{width:0;height:12px;border-radius:0;border-left:1px dashed var(--ink-2)}
-.db-chart{display:flex;flex-direction:column;margin-top:4px}
-.db-row{display:grid;grid-template-columns:8.6rem minmax(0,1fr) 6.4rem;column-gap:18px;align-items:center;min-height:46px}
-.db-lab{font-size:.84rem;font-weight:400;line-height:1.3;color:var(--ink)}
-.db-val{font-size:.84rem;text-align:right;white-space:nowrap;color:var(--ink)}
-.db-val s{text-decoration:none;color:var(--ink-2)}
-.db-val b{font-weight:500}
-.db-track{position:relative;align-self:stretch;margin-inline:7px;
-  background:linear-gradient(var(--rule),var(--rule)) 0 0/1px 100% no-repeat,linear-gradient(var(--rule),var(--rule)) 50% 0/1px 100% no-repeat,linear-gradient(var(--rule),var(--rule)) 100% 0/1px 100% no-repeat}
-.db-track::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule)}
-.db-track::after{content:"";position:absolute;top:0;bottom:0;left:80%;border-left:1px dashed var(--ink-2);opacity:.7}
-.db-track i{position:absolute;top:50%;transform:translateY(-50%)}
-.db-track .seg{left:calc(var(--a) * 1%);width:calc((var(--b) - var(--a)) * 1%);height:4px;border-radius:2px;background:var(--grad-ink)}
-.db-track .old,.db-track .new{width:13px;height:13px;border-radius:50%;margin-left:-6.5px;z-index:1}
-.db-track .old{left:calc(var(--a) * 1%);background:var(--unk)}
-.db-track .new{left:calc(var(--b) * 1%);background:var(--accent-2)}
-.db-row.same .new{width:21px;height:21px;margin-left:-10.5px;background:transparent;border:2px solid var(--accent-2);box-sizing:border-box;z-index:2}
-.db-axis{min-height:28px;align-items:end}
-.db-axis .db-track{background:none;align-self:stretch}
-.db-axis .db-track::before{display:none}
-.db-axis .db-track::after{top:auto;bottom:0;height:8px}
-.db-axis em{position:absolute;bottom:10px;left:calc(var(--x) * 1%);transform:translateX(-50%);font:normal 400 .68rem/1 var(--f-mono);letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
-.db-axis em.t{color:var(--ink);font-weight:500}
-.db-card figcaption{border-top:1px solid var(--rule);padding-top:16px;font-size:.8rem;line-height:1.6;color:var(--ink-2)}
+.chart-img{margin:0;min-width:0}
+.chart-img img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 24px 60px -20px rgba(0,0,0,.55)}
 @media (max-width:1100px){
   .final-grid{grid-template-columns:minmax(0,1fr)}
   .final-text{text-align:center;align-items:center;max-width:68ch;margin-inline:auto}
-  .db-card{max-width:680px;width:100%;margin-inline:auto}
+  .chart-img{max-width:620px;width:100%;margin-inline:auto}
 }
-@media (max-width:560px){
-  .db-row{grid-template-columns:minmax(0,1fr) auto;row-gap:8px;padding-block:9px;min-height:0}
-  .db-row .db-lab{grid-row:1;grid-column:1}
-  .db-row .db-val{grid-row:1;grid-column:2}
-  .db-row .db-track{grid-row:2;grid-column:1/-1;height:22px;align-self:auto}
-  .db-axis .db-track{grid-row:1}
-  .db-axis{padding-block:0 2px}
-  .db-axis .db-lab,.db-axis .db-val{display:none}
-  .db-axis .db-track{height:20px}
-  .db-axis em{font-size:.62rem}
-  .db-axis em[style="--x:0"]{transform:none}
-  .db-axis em[style="--x:100"]{transform:translateX(-100%)}
-  .db-big{gap:10px}
-}
+
 </style>
 </head>
 <body>
@@ -696,22 +649,8 @@ main .stack-lg > h3.sub{margin-top:20px}
         <p>Most importantly, the website has been designed to do more than simply look good. It's now better equipped to turn visitors into genuine high-intent leads and potential new clients.</p>
         <p>With the final setup completed, PFG will have a modern, professional website that better represents the business and is built to support its future growth.</p>
       </div>
-      <figure class="db-card" aria-label="Progress against the growth audit, area by area">
-        <div class="eyebrow">PFG website · Progress against the growth audit</div>
-        <div class="db-big num"><span class="was">28%</span><span class="arrow">→</span><span class="now">74%</span></div>
-        <p class="db-intro">The new website now meets 74% of our original audit checklist, up from just 28%. We've addressed the major issues affecting enquiries, improved the booking experience and created a stronger foundation for attracting new clients.</p>
-        <div class="db-legend"><span><i class="k-old"></i>Current pfg.com.au</span><span><i class="k-new"></i>New site</span><span><i class="k-target"></i>80% target</span></div>
-        <div class="db-chart" role="list">
-          <div class="db-row db-axis" aria-hidden="true"><span class="db-lab"></span><span class="db-track"><em style="--x:0">0%</em><em style="--x:50">50%</em><em class="t" style="--x:80">80%</em><em style="--x:100">100%</em></span><span class="db-val"></span></div>
-          <div class="db-row" role="listitem" aria-label="Visitor experience and enquiries: 38% today, 100% on the new site"><span class="db-lab">Visitor experience &amp; enquiries</span><span class="db-track" style="--a:38;--b:100" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>38%</s> → <b>100%</b></span></div>
-          <div class="db-row" role="listitem" aria-label="Compliance: 75% today, 100% on the new site"><span class="db-lab">Compliance</span><span class="db-track" style="--a:75;--b:100" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>75%</s> → <b>100%</b></span></div>
-          <div class="db-row" role="listitem" aria-label="Content and expertise: 0% today, 75% on the new site"><span class="db-lab">Content &amp; expertise</span><span class="db-track" style="--a:0;--b:75" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>0%</s> → <b>75%</b></span></div>
-          <div class="db-row" role="listitem" aria-label="Technical and SEO: 14% today, 71% on the new site"><span class="db-lab">Technical &amp; SEO</span><span class="db-track" style="--a:14;--b:71" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>14%</s> → <b>71%</b></span></div>
-          <div class="db-row" role="listitem" aria-label="Trust and proof: 40% today, 60% on the new site"><span class="db-lab">Trust &amp; proof</span><span class="db-track" style="--a:40;--b:60" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>40%</s> → <b>60%</b></span></div>
-          <div class="db-row same" role="listitem" aria-label="Local search: 17% today, 17% on the new site"><span class="db-lab">Local search</span><span class="db-track" style="--a:17;--b:17" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>17%</s> → <b>17%</b></span></div>
-          <div class="db-row same" role="listitem" aria-label="Measurement and tracking: 0% today, 0% on the new site"><span class="db-lab">Measurement &amp; tracking</span><span class="db-track" style="--a:0;--b:0" aria-hidden="true"><i class="seg"></i><i class="old"></i><i class="new"></i></span><span class="db-val num"><s>0%</s> → <b>0%</b></span></div>
-        </div>
-        <figcaption>Scores are based on our 38-point audit checklist. Local search and measurement require PFG's own Google Business Profile and Analytics accounts to be connected.</figcaption>
+      <figure class="chart-img">
+        <a href="progress-chart.webp" target="_blank" rel="noopener"><img src="progress-chart.webp" width="1240" height="1269" loading="lazy" alt="PFG website progress against the growth audit: 28% to 74%. Visitor experience and enquiries 38% to 100%, compliance 75% to 100%, content and expertise 0% to 75%, technical and SEO 14% to 71%, trust and proof 40% to 60%, local search 17% to 17%, measurement and tracking 0% to 0%."></a>
       </figure>
     </div>
   </div>
