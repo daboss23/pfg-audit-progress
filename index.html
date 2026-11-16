@@ -384,6 +384,12 @@ ol.ai-list li::before{content:counter(ai,decimal-leading-zero);display:block;fon
 main .close.cta p{color:var(--band-muted)}
 .close.cta .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
 @media (max-width:820px){ .close.cta{padding-block:60px} }
+/* Important note: soft glowing box with a slow breathing glow */
+.cover .lede.glow-note{font-weight:600;font-size:.86rem;line-height:1.65;color:var(--band-ink);max-width:56ch;margin-inline:auto;margin-top:22px;padding:14px 22px;border-radius:12px;
+  border:1px solid rgba(155,123,255,.4);background:linear-gradient(135deg,rgba(155,123,255,.08),rgba(79,216,240,.06));box-shadow:0 0 16px rgba(111,139,255,.16);animation:noteglow 4.5s ease-in-out infinite}
+@keyframes noteglow{0%,100%{box-shadow:0 0 14px rgba(111,139,255,.14);border-color:rgba(155,123,255,.38)}50%{box-shadow:0 0 26px rgba(79,216,240,.26);border-color:rgba(79,216,240,.55)}}
+@media (prefers-reduced-motion:reduce){.cover .lede.glow-note{animation:none}}
+@media (max-width:820px){.cover .lede.glow-note{padding:12px 16px;font-size:.84rem}}
 </style>
 </head>
 <body>
@@ -398,7 +404,7 @@ main .close.cta p{color:var(--band-muted)}
       <h1>From 28% to 74%. <em>Here's what a better PFG website could look like.</em></h1>
       <p class="lede">After reviewing PFG's existing website, we decided to go a step further than simply recommending improvements. We've built a working demonstration to show how PFG could have a more modern, professional website that better reflects its 36 years of experience and makes it easier for potential clients to get in touch.</p>
       <p class="lede">Based on our original audit checklist, the proposed website has been provisionally assessed at <b>74%</b>, compared with <b>28%</b> for the current site.</p>
-      <p class="lede small">These figures represent checklist assessments of the existing website and the proposed demonstration, not proven increases in enquiries or conversions.</p>
+      <p class="lede small glow-note">These figures represent checklist assessments of the existing website and the proposed demonstration, not proven increases in enquiries or conversions.</p>
       <div class="meta">
         <div><b>Prepared for</b>Angelo Panella, Founder<br>PFG Financial Services</div>
         <div><b>Prepared by</b>PrimeFloAI<br>Piero Sacchetta &amp; Josh Ross</div>
